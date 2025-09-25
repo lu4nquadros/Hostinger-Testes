@@ -1,0 +1,465 @@
+<!doctype html>
+<html lang="pt-br">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Rancho da Gaby — Links</title>
+<meta name="theme-color" content="#0b0b10" />
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+
+<!-- ========== META PIXEL (GABY) ========== 
+- Pixel ID usado também no orgânico
+- PageView geral dispara no carregamento
+- Os cliques serão enviados via fbq('trackCustom', 'Click_Telegram' | 'Click_Cakto')
+-->
+<script>
+!function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;
+n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;
+t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}
+(window,document,'script','https://connect.facebook.net/en_US/fbevents.js');
+
+fbq('init','1893244241235318');     // <-- SEU PIXEL
+fbq('track','PageView');            // <-- PageView geral
+</script>
+<noscript><img height="1" width="1" style="display:none"
+  src="https://www.facebook.com/tr?id=1893244241235318&ev=PageView&noscript=1"
+/></noscript>
+<!-- ========== /META PIXEL ========== -->
+
+<style>
+  :root{
+    --bg:#0b0b10;
+    --text:#e8e8f0; 
+    --muted:#a6a6b5;
+    --stroke: rgba(255,255,255,.1);
+    --card:#14141c;
+  }
+  *{box-sizing:border-box}
+  html,body{height:100%}
+  body{
+    margin:0; background: radial-gradient(1200px 700px at 80% -10%, #191927 0%, #0b0b10 40%) , #0b0b10;
+    color:var(--text); font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, Arial;
+    -webkit-font-smoothing:antialiased;
+  }
+  a{color:inherit;text-decoration:none}
+  img{user-select:none; -webkit-user-drag:none}
+  .wrap{max-width:1120px;margin:0 auto;padding:16px 14px 40px}
+
+  /* HEADER */
+  header{display:flex;align-items:flex-start;gap:12px;margin-bottom:20px}
+  .dot{
+    width:10px;height:10px;border-radius:999px;background:#e50914;
+    box-shadow:0 0 8px #e50914; animation: blink 1.2s infinite; margin-top:6px;
+  }
+  @keyframes blink{
+    0%,100%{opacity:.25; box-shadow:0 0 8px #e50914}
+    50%{opacity:1; box-shadow:0 0 18px #ff3341}
+  }
+  .title-text{line-height:1.1; font-weight:800; font-size:22px}
+  .tagline{color:var(--muted); font-size:12px; margin-left:auto; padding-top:2px}
+
+  /* HERO */
+  .hero{
+    position:relative; border-radius:16px; overflow:hidden;
+    box-shadow:0 20px 60px rgba(0,0,0,.55), 0 0 0 1px var(--stroke);
+    background:#111; isolation:isolate;
+  }
+  .hero-track{
+    display:flex; width:100%; height:56vh; max-height:560px; min-height:320px;
+    transition:transform .6s cubic-bezier(.22,.61,.36,1);
+    touch-action:pan-y;
+    cursor: grab; user-select:none;
+  }
+  .hero-track.dragging{cursor: grabbing}
+  .hero-slide{flex:0 0 100%; position:relative}
+  .hero-slide img{position:absolute; inset:0; width:100%; height:100%; object-fit:cover}
+  .hero-grad{position:absolute; inset:0; background:linear-gradient(180deg, rgba(0,0,0,.0) 45%, rgba(0,0,0,.65) 100%)}
+  .hero-caption{
+    position:absolute; left:16px; right:16px; bottom:16px; z-index:2;
+    display:flex; align-items:flex-end; justify-content:space-between; gap:12px; flex-wrap:wrap;
+  }
+  .hero-title{font-size:clamp(18px,3.2vw,28px); font-weight:800; text-shadow:0 8px 28px rgba(0,0,0,.7)}
+  .hero-sub{font-size:13px; color:#d8d8e4; margin-top:6px}
+  .hero-left{display:flex; flex-direction:column; max-width:680px}
+  .hero-ctas{display:flex; gap:10px}
+
+  /* BOTÃO vermelho – degradê horizontal + pulso */
+  .btn-red{
+    display:inline-flex; align-items:center; padding:12px 16px; border-radius:12px;
+    background: linear-gradient(90deg, #b8000c, #ff3140, #ff5966, #b8000c);
+    background-size: 300% 100%; 
+    color:#fff; border:1px solid transparent;
+    font-weight:800; position:relative; overflow:hidden;
+    box-shadow:0 12px 32px rgba(229,9,20,.35);
+    animation: gradMove 3.2s linear infinite, pulse 1.8s ease-in-out infinite;
+    transform: translateZ(0);
+  }
+  @keyframes gradMove{0%{background-position: 0% 50%}100%{background-position: 100% 50%}}
+  @keyframes pulse{0%,100%{transform:scale(1)}50%{transform:scale(1.05)}}
+
+  .hero-dots{position:absolute; left:50%; transform:translateX(-50%); bottom:12px; display:flex; gap:8px; z-index:3}
+  .hero-dot{width:8px;height:8px;border-radius:999px;background:rgba(255,255,255,.35)}
+  .hero-dot.active{background:#fff}
+  .arrow{position:absolute; top:50%; transform:translateY(-50%); z-index:3;
+    width:40px;height:40px;border-radius:999px;background:rgba(0,0,0,.45);
+    border:1px solid var(--stroke); display:grid; place-items:center; cursor:pointer; user-select:none;}
+  .arrow.left{left:10px} .arrow.right{right:10px}
+
+  /* ROWS / CARDS */
+  .row{margin-top:22px}
+  .row h3{margin:6px 6px 10px; font-size:18px}
+  .rail{
+    display:grid; grid-auto-flow:column; grid-auto-columns: clamp(160px, 42vw, 220px);
+    gap:12px; overflow-x:auto; padding:6px 2px 10px; scroll-snap-type:x mandatory;
+    cursor: grab; user-select:none; -webkit-overflow-scrolling: touch;
+  }
+  .rail.dragging{cursor: grabbing}
+  .rail::-webkit-scrollbar{height:8px}
+  .rail::-webkit-scrollbar-thumb{background:rgba(255,255,255,.1); border-radius:999px}
+  .card{
+    position:relative; border-radius:12px; overflow:hidden; background:#111; aspect-ratio:16/9;
+    box-shadow:0 10px 30px rgba(0,0,0,.45), 0 0 0 1px var(--stroke);
+    scroll-snap-align:start;
+  }
+  .card img{width:100%; height:100%; object-fit:cover; display:block; transition:transform .35s ease}
+  .card:hover img{transform:scale(1.04)}
+  .card-grad{position:absolute; inset:0; background:linear-gradient(180deg, rgba(0,0,0,.0) 50%, rgba(0,0,0,.85) 105%)}
+  .card-body{position:absolute; inset:auto 8px 8px; display:flex; flex-direction:column; gap:6px}
+  .chip{font-size:11px; color:#fff; background:rgba(255,255,255,.14); padding:4px 8px; border-radius:999px; width:max-content}
+  .chip.chip-free{
+    color:#bff6d3;
+    background: rgba(46, 204, 113, .16);
+    border: 1px solid rgba(46, 204, 113, .28);
+  }
+  .card-title{font-weight:700; font-size:14px}
+  .card-cta{font-size:12px; color:#d9d9e2}
+
+  .foot{margin-top:18px; color:var(--muted); font-size:12px; text-align:center}
+
+  /* MOBILE */
+  @media (max-width:480px){
+    .hero-track{height:62vh; min-height:360px}
+    .rail{grid-auto-columns: 72vw}
+    .title-text{font-size:20px}
+  }
+</style>
+</head>
+<body>
+  <div class="wrap">
+    <!-- TÍTULO -->
+    <header>
+      <span class="dot"></span>
+      <div class="title-text">
+        Rancho da<br>gaby 🌾
+      </div>
+      <div class="tagline">links oficiais • evite perfis falsos</div>
+    </header>
+
+    <!-- ================= HERO ================= -->
+    <section class="hero" aria-label="Carrossel de fotos">
+      <div class="arrow left" aria-label="Anterior" role="button" tabindex="0">‹</div>
+      <div class="arrow right" aria-label="Próximo" role="button" tabindex="0">›</div>
+
+      <div class="hero-track" id="heroTrack">
+        <!-- Slide 1 -->
+        <div class="hero-slide">
+          <img src="https://i.postimg.cc/L4yhyHR9/Feed-5.jpg" alt="Foto 1" draggable="false">
+          <div class="hero-grad"></div>
+          <div class="hero-caption">
+            <div class="hero-left">
+              <div class="hero-title">Celeiro da Put4ri4</div>
+              <div class="hero-sub">tiro leite e não é de vaca 💦🥛</div>
+            </div>
+            <div class="hero-ctas">
+              <!-- [PIXEL] Clique em botão do Telegram (evento unificado Click_Telegram) -->
+              <a class="btn-red"
+                 href="https://t.me/liviagabrielly_bot?start=CH"
+                 target="_blank" rel="noopener noreferrer"
+                 data-dest="telegram">Ver Prévias</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Slide 2 -->
+        <div class="hero-slide">
+          <img src="https://i.postimg.cc/0QV5HCTW/Feed-1.jpg" alt="Foto 2" draggable="false">
+          <div class="hero-grad"></div>
+          <div class="hero-caption">
+            <div class="hero-left">
+              <div class="hero-title">Fazendinha da Gaby</div>
+              <div class="hero-sub">🟢AO VIVO: tirando leite da fonte</div>
+            </div>
+            <div class="hero-ctas">
+              <!-- [PIXEL] Clique em botão do Telegram (evento unificado Click_Telegram) -->
+              <a class="btn-red"
+                 href="https://t.me/liviagabrielly_bot?start=CH"
+                 target="_blank" rel="noopener noreferrer"
+                 data-dest="telegram">Assistir ao Vivo agora!</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Slide 3 -->
+        <div class="hero-slide">
+          <img src="https://i.postimg.cc/t4FqHy0V/Feed-4.jpg" alt="Foto 3" draggable="false">
+          <div class="hero-grad"></div>
+          <div class="hero-caption">
+            <div class="hero-left">
+              <div class="hero-title">Oferta especial</div>
+              <div class="hero-sub">Acessar sem Telegram!</div>
+            </div>
+            <div class="hero-ctas">
+              <!-- [PIXEL] Clique em botão que levaria pro Cakto (evento unificado Click_Cakto) -->
+              <a class="btn-red"
+                 href="https://pay.cakto.com.br/343b9ek_521136"
+                 target="_blank" rel="noopener noreferrer"
+                 data-dest="cakto">Acessar Agora!</a>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="hero-dots" id="heroDots" aria-hidden="true"></div>
+    </section>
+
+    <!-- ================= DESTAQUES ================= -->
+    <section class="row">
+      <h3>🔥 Destaques</h3>
+      <div class="rail js-drag">
+        <!-- [PIXEL] Link do Telegram (evento unificado Click_Telegram) -->
+        <a class="card" href="https://t.me/liviagabrielly_bot?start=CH" target="_blank" rel="noopener" data-dest="telegram">
+          <img src="https://i.postimg.cc/RZqMNfnK/Fotos-com-Upscale-Image-13.png" alt="Ver Prévias" draggable="false">
+          <div class="card-grad"></div>
+          <div class="card-body">
+            <span class="chip chip-free">Gratis</span>
+            <div class="card-title">Ver Prévias</div>
+            <div class="card-cta">entra e confere</div>
+          </div>
+        </a>
+        <!-- [PIXEL] Link do Telegram (evento unificado Click_Telegram) -->
+        <a class="card" href="https://t.me/liviagabrielly_bot?start=CH" target="_blank" rel="noopener" data-dest="telegram">
+          <img src="https://i.postimg.cc/63VKDfDJ/Possiveis-Copias-26.png" alt="Acessar VIP" draggable="false">
+          <div class="card-grad"></div>
+          <div class="card-body">
+            <span class="chip">Plano</span>
+            <div class="card-title">Acessar VIP</div>
+            <div class="card-cta">acesso imediato</div>
+          </div>
+        </a>
+        <!-- [PIXEL] Link do Cakto (evento unificado Click_Cakto) -->
+        <a class="card" href="https://pay.cakto.com.br/343b9ek_521136" target="_blank" rel="noopener" data-dest="cakto">
+          <img src="https://i.postimg.cc/9MHV8ngY/Fotos-com-Upscale-Image-28.png" alt="Sem Telegram" draggable="false">
+          <div class="card-grad"></div>
+          <div class="card-body">
+            <span class="chip">Plano</span>
+            <div class="card-title">Sem Telegram!</div>
+            <div class="card-cta">acessar agora</div>
+          </div>
+        </a>
+      </div>
+    </section>
+
+    <!-- ================= PLANOS & OFERTAS =================
+         IMPORTANTE: todos os links desta seção foram alterados para o TELEGRAM,
+         porém continuam com marcação unificada (Click_Telegram).
+    -->
+    <section class="row">
+      <h3>💎 Planos & Ofertas</h3>
+      <div class="rail js-drag">
+        <!-- [PIXEL] TELEGRAM (evento unificado Click_Telegram) -->
+        <a class="card"
+           href="https://t.me/liviagabrielly_bot?start=CH"
+           target="_blank" rel="noopener"
+           data-dest="telegram">
+          <img src="https://i.postimg.cc/1XJQz5mv/Possiveis-Copias-29.png" alt="Sela Simples" draggable="false">
+          <div class="card-grad"></div>
+          <div class="card-body">
+            <span class="chip">Plano</span>
+            <div class="card-title">Sela Simples</div>
+            <div class="card-cta">Saiba mais</div>
+          </div>
+        </a>
+
+        <!-- [PIXEL] TELEGRAM (evento unificado Click_Telegram) -->
+        <a class="card"
+           href="https://t.me/liviagabrielly_bot?start=CH"
+           target="_blank" rel="noopener"
+           data-dest="telegram">
+          <img src="https://i.postimg.cc/hGdc0BsG/Possiveis-Copias-27.png" alt="Colheita Bruta" draggable="false">
+          <div class="card-grad"></div>
+          <div class="card-body">
+            <span class="chip">Plano</span>
+            <div class="card-title">Colheita Bruta</div>
+            <div class="card-cta">Saiba mais</div>
+          </div>
+        </a>
+
+        <!-- [PIXEL] TELEGRAM (evento unificado Click_Telegram) -->
+        <a class="card"
+           href="https://t.me/liviagabrielly_bot?start=CH"
+           target="_blank" rel="noopener"
+           data-dest="telegram">
+          <img src="https://i.postimg.cc/cLjdYHQj/Fotos-com-Upscale-Image-36.png" alt="Fogo no Curral" draggable="false">
+          <div class="card-grad"></div>
+          <div class="card-body">
+            <span class="chip">Plano</span>
+            <div class="card-title">Fogo no Curral!</div>
+            <div class="card-cta">Saiba mais</div>
+          </div>
+        </a>
+      </div>
+    </section>
+
+    <div class="foot">© Rancho da Gaby • todos os direitos reservados</div>
+  </div>
+
+<script>
+/* ==========================================================
+   HERO CAROUSEL (mantido igual ao seu)
+   ========================================================== */
+const track = document.getElementById('heroTrack');
+const dotsWrap = document.getElementById('heroDots');
+const slides = Array.from(track.children);
+let idx = 0, auto;
+let hDown=false, hStart=0, hCur=0;
+
+function go(i){
+  idx = (i+slides.length) % slides.length;
+  track.style.transform = `translateX(-${idx*100}%)`;
+  renderDots();
+}
+function next(){ go(idx+1) }
+function prev(){ go(idx-1) }
+
+function renderDots(){
+  dotsWrap.innerHTML = '';
+  slides.forEach((_,i)=>{
+    const d=document.createElement('div');
+    d.className = 'hero-dot'+(i===idx?' active':'');
+    d.onclick=()=>go(i);
+    dotsWrap.appendChild(d);
+  });
+}
+renderDots(); go(0);
+
+function autoplay(){
+  clearInterval(auto);
+  auto = setInterval(next, 5000);
+}
+autoplay();
+
+/* arrows & keys */
+document.querySelector('.arrow.left')?.addEventListener('click', ()=>{ prev(); autoplay(); });
+document.querySelector('.arrow.right')?.addEventListener('click', ()=>{ next(); autoplay(); });
+window.addEventListener('keydown', (e)=>{
+  if(e.key==='ArrowRight'){ next(); autoplay(); }
+  if(e.key==='ArrowLeft'){ prev(); autoplay(); }
+});
+
+/* touch swipe hero */
+track.addEventListener('touchstart', (e)=>{
+  clearInterval(auto);
+  hDown=true; hStart=e.touches[0].clientX; hCur=hStart;
+},{passive:true});
+track.addEventListener('touchmove', (e)=>{
+  if(!hDown) return;
+  hCur = e.touches[0].clientX;
+  const dx = hCur - hStart;
+  track.style.transform = `translateX(calc(-${idx*100}% + ${dx}px))`;
+},{passive:true});
+track.addEventListener('touchend', ()=>{
+  const dx = hCur - hStart;
+  hDown=false;
+  if(Math.abs(dx) > 60){ dx<0 ? next() : prev(); } else { go(idx); }
+  autoplay();
+});
+
+/* mouse drag hero */
+track.addEventListener('mousedown', (e)=>{
+  e.preventDefault();
+  clearInterval(auto);
+  hDown=true; hStart=e.pageX; hCur=hStart;
+  track.classList.add('dragging');
+});
+window.addEventListener('mousemove', (e)=>{
+  if(!hDown) return;
+  hCur = e.pageX;
+  const dx = hCur - hStart;
+  track.style.transform = `translateX(calc(-${idx*100}% + ${dx}px))`;
+});
+window.addEventListener('mouseup', ()=>{
+  if(!hDown) return;
+  const dx = hCur - hStart;
+  hDown=false; track.classList.remove('dragging');
+  if(Math.abs(dx) > 60){ dx<0 ? next() : prev(); } else { go(idx); }
+  autoplay();
+});
+
+/* ==========================================================
+   RAIL DRAG (desktop) com click guard
+   ========================================================== */
+document.querySelectorAll('.js-drag').forEach(rail=>{
+  let isDown=false, moved=false, startX=0, scrollL=0;
+  rail.querySelectorAll('img').forEach(img=>img.setAttribute('draggable','false'));
+
+  rail.addEventListener('mousedown', e=>{
+    isDown=true; moved=false; rail.classList.add('dragging');
+    startX = e.pageX; scrollL = rail.scrollLeft;
+    e.preventDefault();
+  });
+  rail.addEventListener('mousemove', e=>{
+    if(!isDown) return;
+    const dx = e.pageX - startX;
+    if(Math.abs(dx) > 3) moved=true;
+    rail.scrollLeft = scrollL - dx * 1.2;
+  });
+  rail.addEventListener('mouseup', ()=>{
+    isDown=false; rail.classList.remove('dragging');
+    setTimeout(()=>{ moved=false; }, 0);
+  });
+  rail.addEventListener('mouseleave', ()=>{
+    isDown=false; rail.classList.remove('dragging');
+    moved=false;
+  });
+  rail.addEventListener('click', (e)=>{
+    if(moved){ e.preventDefault(); e.stopPropagation(); }
+  }, true);
+});
+
+/* ==========================================================
+   [PIXEL] MARCAÇÃO UNIFICADA DE CLIQUES
+   - TODO link <a> com data-dest="telegram" dispara Click_Telegram
+   - TODO link <a> com data-dest="cakto"    dispara Click_Cakto
+   - Fallback automático: se o href contiver "t.me" => Telegram
+                          se contiver "pay.cakto.com.br" => Cakto
+   ========================================================== */
+(function(){
+  function trackClick(evtName){
+    try { fbq('trackCustom', evtName); } catch(e) { /* silencioso */ }
+  }
+
+  document.querySelectorAll('a[href]').forEach(a=>{
+    const href = (a.getAttribute('href')||'').toLowerCase();
+    const destAttr = (a.getAttribute('data-dest')||'').toLowerCase();
+
+    // Regra por atributo data-dest (prioritária)
+    if(destAttr === 'telegram'){
+      a.addEventListener('click', ()=> trackClick('Click_Telegram'));
+      return;
+    }
+    if(destAttr === 'cakto'){
+      a.addEventListener('click', ()=> trackClick('Click_Cakto'));
+      return;
+    }
+
+    // Fallback por URL (caso alguém adicione novos links sem data-dest)
+    if(href.includes('t.me') || href.includes('telegram')){
+      a.addEventListener('click', ()=> trackClick('Click_Telegram'));
+    } else if(href.includes('pay.cakto.com.br')){
+      a.addEventListener('click', ()=> trackClick('Click_Cakto'));
+    }
+  });
+})();
+</script>
+</body>
+</html>
